@@ -17,7 +17,6 @@ A modern, responsive personal portfolio website built with React and TypeScript.
 
 - React 18.2.0
 - TypeScript 5.0.2
-- Vite 4.4.5
 - CSS Modules
 - Node.js >= 16.0.0
 
