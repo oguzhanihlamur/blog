@@ -1,0 +1,42 @@
+.name {
+  margin: 0;
+  padding: 0;
+  font-family: 'DM Serif Text', serif;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.firstName, .lastName {
+  display: block;
+}
+
+.small {
+  font-size: 1.5rem;
+}
+
+.medium {
+  font-size: 2rem;
+}
+
+.large {
+  font-size: 2.5rem;
+}
+
+@media (max-width: 640px) {
+  .name {
+    gap: 8px;
+  }
+
+  .small {
+    font-size: 1.25rem;
+  }
+
+  .medium {
+    font-size: 1.75rem;
+  }
+
+  .large {
+    font-size: 2rem;
+  }
+} 

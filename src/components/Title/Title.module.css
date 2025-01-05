@@ -1,0 +1,28 @@
+.title {
+  margin: 0;
+  padding: 0;
+}
+
+.primary {
+  font-family: 'DM Serif Text', serif;
+}
+
+.secondary {
+  font-family: 'Playfair Display', serif;
+}
+
+.accent {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.small {
+  font-size: 1.25rem;
+}
+
+.medium {
+  font-size: 1.75rem;
+}
+
+.large {
+  font-size: 2.25rem;
+}
