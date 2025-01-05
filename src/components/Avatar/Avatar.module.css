@@ -1,44 +1,63 @@
-.avatar {
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
   border-radius: 50%;
   overflow: hidden;
-  background-color: #f0f0f0;
 }
 
-.small {
-  width: 32px;
-  height: 32px;
-}
-
-.medium {
-  width: 128px;
-  height: 128px;
-}
-
-.large {
-  width: 256px;
-  height: 256px;
-}
-
-@media (max-width: 640px) {
-  .large {
-    width: 192px;
-    height: 192px;
-  }
-
-  .medium {
-    width: 96px;
-    height: 96px;
-  }
+.avatar {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #f3f4f6;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 50%;
 }
 
 .placeholder {
   width: 100%;
   height: 100%;
   background-color: #e0e0e0;
+  border-radius: 50%;
+}
+
+.avatar.large {
+  width: 200px;
+  height: 200px;
+}
+
+.avatar.medium {
+  width: 160px;
+  height: 160px;
+}
+
+.avatar.small {
+  width: 120px;
+  height: 120px;
+}
+
+@media (max-width: 640px) {
+  .avatar.large {
+    width: 160px;
+    height: 160px;
+  }
+
+  .avatar.medium {
+    width: 120px;
+    height: 120px;
+  }
+
+  .avatar.small {
+    width: 100px;
+    height: 100px;
+  }
 } 

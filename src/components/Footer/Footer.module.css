@@ -1,0 +1,31 @@
+.footer {
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.content {
+  text-align: center;
+}
+
+.copyright {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  color: #718096;
+}
+
+@media (max-width: 640px) {
+  .footer {
+    bottom: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .copyright {
+    font-size: 0.75rem;
+  }
+} 

@@ -4,8 +4,12 @@ import { Avatar } from './components/Avatar/Avatar.tsx';
 import { Name } from './components/Name/Name.tsx';
 import { Description } from './components/Description/Description.tsx';
 import { Location } from './components/Location/Location.tsx';
+import { Company } from './components/Company/Company.tsx';
+import { Footer } from './components/Footer/Footer.tsx';
 import { useLanguage } from './context/LanguageContext.tsx';
 import { CodeRain } from './components/CodeRain/CodeRain.tsx';
+import { SocialLinks } from './components/SocialLinks/SocialLinks.tsx';
+import { TechStack } from './components/TechStack/TechStack.tsx';
 
 function App() {
   const { language, setLanguage, translations } = useLanguage();
@@ -20,8 +24,8 @@ function App() {
       <div className={styles.square}>
         <div className={styles.profileContainer}>
           <Avatar 
-            image="/assets/my-photo.png" 
-            size="large" 
+            image="/assets/my-photo.png"
+            size="medium" 
             alt={translations.profile.alt}
           />
           <div className={styles.textContainer}>
@@ -31,10 +35,19 @@ function App() {
               size="medium"
             />
             <Description text={translations.profile.description} />
-            <Location 
-              city={translations.profile.location.city}
-              country={translations.profile.location.country}
-            />
+            <div className={styles.infoContainer}>
+              <Location 
+                city={translations.profile.location.city}
+                country={translations.profile.location.country}
+              />
+              <Company 
+                title={translations.profile.position.title}
+                company={translations.profile.position.company}
+                companyUrl={translations.profile.position.companyUrl}
+              />
+              <TechStack />
+              <SocialLinks />
+            </div>
           </div>
         </div>
         <button 
@@ -43,6 +56,7 @@ function App() {
         >
           {translations.common.languageButton}
         </button>
+        <Footer />
       </div>
     </div>
   );
