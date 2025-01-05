@@ -25,7 +25,8 @@ export const tr = {
     }
   },
   common: {
-    languageButton: "TR"
+    languageButton: "TR",
+    cvButton: "CV"
   },
   footer: {
     copyright: "Oğuzhan Ihlamur. Tüm hakları saklıdır."

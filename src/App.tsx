@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import styles from './App.module.css';
 import { Avatar } from './components/Avatar/Avatar.tsx';
 import { Name } from './components/Name/Name.tsx';
@@ -13,9 +13,26 @@ import { TechStack } from './components/TechStack/TechStack.tsx';
 
 function App() {
   const { language, setLanguage, translations } = useLanguage();
+  const [cvFileName, setCvFileName] = useState('');
+
+  const cvExists = useMemo(() => {
+    const fileName = language === 'tr' ? 'oguzhan-ihlamur-cv-tr.pdf' : 'oguzhan-ihlamur-cv-en.pdf';
+    setCvFileName(fileName);
+    const availableLanguages = ['en']; // Sadece İngilizce CV var ise
+    return availableLanguages.includes(language);
+  }, [language]);
 
   const toggleLanguage = () => {
     setLanguage(language === 'tr' ? 'en' : 'tr');
+  };
+
+  const handleDownloadCV = () => {
+    const link = document.createElement('a');
+    link.href = `/assets/${cvFileName}`;
+    link.download = cvFileName;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -50,12 +67,22 @@ function App() {
             </div>
           </div>
         </div>
-        <button 
-          onClick={toggleLanguage} 
-          className={styles.languageToggle}
-        >
-          {translations.common.languageButton}
-        </button>
+        <div className={styles.buttonContainer}>
+          <button 
+            onClick={toggleLanguage} 
+            className={styles.languageToggle}
+          >
+            {translations.common.languageButton}
+          </button>
+          {cvExists && (
+            <button 
+              onClick={handleDownloadCV}
+              className={styles.cvButton}
+            >
+              {translations.common.cvButton}
+            </button>
+          )}
+        </div>
         <Footer />
       </div>
     </div>

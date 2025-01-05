@@ -23,8 +23,9 @@
 }
 
 .title {
-  font-weight: 600;
+  font-weight: 500;
   color: #2D3748;
+  font-family: 'Inter', sans-serif;
 }
 
 .separator {
@@ -40,7 +41,7 @@
   text-decoration: none;
   transition: color 0.2s;
   line-height: 1;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
 }
 

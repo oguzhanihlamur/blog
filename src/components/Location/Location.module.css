@@ -53,4 +53,10 @@
     width: 14px;
     height: 14px;
   }
+}
+
+.location {
+  font-weight: 500;
+  color: #2D3748;
+  font-family: 'Inter', sans-serif;
 } 
