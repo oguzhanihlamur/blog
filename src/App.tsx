@@ -89,8 +89,8 @@ function App() {
               onChange={toggleTheme}
             />
             <span className={styles.slider}>
-              <span className={styles.themeIcon}>🌙</span>
-              <span className={styles.themeIcon}>☀️</span>
+              <span className={styles.themeIcon}>🕶️</span>
+              <span className={styles.themeIcon}>👓</span>
             </span>
           </label>
           <button 
