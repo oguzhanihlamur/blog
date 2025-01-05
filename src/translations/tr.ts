@@ -19,7 +19,7 @@ export const tr = {
       heading: "TEKNOLOJİLER",
       categories: {
         languages: "Programlama Dilleri",
-        databases: "Veritabanları",
+        databases: "Veri Tabanları",
         queue: "Mesaj Kuyruğu"
       }
     }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import styles from './TechStack.module.css';
 import { useLanguage } from '../../context/LanguageContext.tsx';
 
@@ -15,36 +15,47 @@ interface TechCategory {
 export const TechStack: React.FC = () => {
   const { translations } = useLanguage();
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const categories: TechCategory[] = [
     {
       title: translations.profile.techStack.categories.languages,
       items: [
-        { name: 'Java', icon: '/assets/tech/java.svg' },
-        { name: 'JavaScript', icon: '/assets/tech/javascript.svg' },
+        { name: 'Java', icon: 'java.svg' },
+        { name: 'JavaScript', icon: 'javascript.svg' },
       ]
     },
     {
       title: translations.profile.techStack.categories.databases,
       items: [
-        { name: 'SQL Server', icon: '/assets/tech/sqlserver.svg' },
-        { name: 'PostgreSQL', icon: '/assets/tech/postgresql.svg' },
-        { name: 'SQLite', icon: '/assets/tech/sqlite.svg' },
-        { name: 'Oracle', icon: '/assets/tech/oracle.svg' },
+        { name: 'SQL Server', icon: 'sqlserver.svg' },
+        { name: 'PostgreSQL', icon: 'postgresql.svg' },
+        { name: 'SQLite', icon: 'sqlite.svg' },
+        { name: 'Oracle', icon: 'oracle.svg' },
       ]
     },
     {
       title: translations.profile.techStack.categories.queue,
       items: [
-        { name: 'Kafka', icon: '/assets/tech/kafka.svg' },
+        { name: 'Kafka', icon: 'kafka.svg' },
       ]
     }
   ];
+
+  const technologies = useMemo(() => {
+    return categories.map(category => ({
+      ...category,
+      items: category.items.map(item => ({
+        ...item,
+        icon: `/assets/tech/${item.icon}`
+      }))
+    }));
+  }, [categories]);
 
   return (
     <div className={styles.container}>
       <h3 className={styles.heading}>{translations.profile.techStack.heading}</h3>
       <div className={styles.categories}>
-        {categories.map((category, categoryIndex) => (
+        {technologies.map((category, categoryIndex) => (
           <div key={categoryIndex} className={styles.category}>
             <h4 className={styles.categoryTitle}>{category.title}</h4>
             <div className={styles.technologies}>

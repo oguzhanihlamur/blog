@@ -18,7 +18,7 @@ function App() {
   const cvExists = useMemo(() => {
     const fileName = language === 'tr' ? 'oguzhan-ihlamur-cv-tr.pdf' : 'oguzhan-ihlamur-cv-en.pdf';
     setCvFileName(fileName);
-    const availableLanguages = ['en']; // Sadece İngilizce CV var ise
+    const availableLanguages = [''];
     return availableLanguages.includes(language);
   }, [language]);
 
