@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import styles from './App.module.css';
 import { Avatar } from './components/Avatar/Avatar.tsx';
 import { Name } from './components/Name/Name.tsx';
@@ -14,6 +14,16 @@ import { TechStack } from './components/TechStack/TechStack.tsx';
 function App() {
   const { language, setLanguage, translations } = useLanguage();
   const [cvFileName, setCvFileName] = useState('');
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return true;
+    }
+    return false;
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+  }, [isDarkMode]);
 
   const cvExists = useMemo(() => {
     const fileName = language === 'tr' ? 'oguzhan-ihlamur-cv-tr.pdf' : 'oguzhan-ihlamur-cv-en.pdf';
@@ -33,6 +43,10 @@ function App() {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+  };
+
+  const toggleTheme = () => {
+    setIsDarkMode(prev => !prev);
   };
 
   return (
@@ -68,6 +82,17 @@ function App() {
           </div>
         </div>
         <div className={styles.buttonContainer}>
+          <label className={styles.themeToggle}>
+            <input
+              type="checkbox"
+              checked={isDarkMode}
+              onChange={toggleTheme}
+            />
+            <span className={styles.slider}>
+              <span className={styles.themeIcon}>🌙</span>
+              <span className={styles.themeIcon}>☀️</span>
+            </span>
+          </label>
           <button 
             onClick={toggleLanguage} 
             className={styles.languageToggle}

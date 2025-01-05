@@ -10,7 +10,7 @@
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
-  color: #718096;
+  color: var(--text-heading);
   letter-spacing: 0.05em;
 }
 
@@ -63,4 +63,8 @@
   .content {
     font-size: 0.9375rem;
   }
+}
+
+.company {
+  color: var(--text-muted);
 } 

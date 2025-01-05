@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import styles from './CodeRain.module.css';
+import '../../styles/theme.css';
 
 export const CodeRain: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -19,13 +20,9 @@ export const CodeRain: React.FC = () => {
     const initializeDrops = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      
-      // Sütun sayısını yeniden hesapla
       columnsRef.current = Math.floor(canvas.width / fontSize);
       
-      // Mevcut drops dizisinin uzunluğunu kontrol et
       if (dropsRef.current.length !== columnsRef.current) {
-        // Yeni drops dizisi oluştur
         dropsRef.current = new Array(columnsRef.current).fill(0);
       }
     };
@@ -33,10 +30,15 @@ export const CodeRain: React.FC = () => {
     initializeDrops();
 
     const draw = () => {
-      ctx.fillStyle = 'rgba(247, 250, 252, 0.01)';
+      const root = document.documentElement;
+      const styles = getComputedStyle(root);
+      const bgOpacity = styles.getPropertyValue('--global-bg-opacity').trim();
+      const textColor = styles.getPropertyValue('--coderain-text-color').trim();
+
+      ctx.fillStyle = bgOpacity;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = '#f96d00';
+      ctx.fillStyle = textColor;
       ctx.font = `bold ${fontSize}px monospace`;
 
       dropsRef.current.forEach((drop, i) => {
@@ -61,14 +63,11 @@ export const CodeRain: React.FC = () => {
     };
     animate();
 
-    // Pencere boyutu değiştiğinde
     const handleResize = () => {
       const oldColumns = columnsRef.current;
       initializeDrops();
 
-      // Yeni sütunlar için mevcut drops değerlerini koru
       if (oldColumns < columnsRef.current) {
-        // Yeni sütunlar eklendiğinde rastgele başlangıç pozisyonları ata
         for (let i = oldColumns; i < columnsRef.current; i++) {
           dropsRef.current[i] = Math.floor(Math.random() * canvas.height / fontSize);
         }

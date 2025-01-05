@@ -10,7 +10,7 @@ export const SocialLinks: React.FC = () => {
       <h3 className={styles.heading}>{translations.profile.social.heading}</h3>
       <div className={styles.links}>
         <a 
-          href="https://www.linkedin.com/in/oguzhanihlamur" 
+          href="https://linkedin.com/in/oguzhanihlamur" 
           target="_blank" 
           rel="noopener noreferrer"
           className={styles.link}
@@ -41,7 +41,7 @@ export const SocialLinks: React.FC = () => {
           </svg>
         </a>
         <a 
-          href="https://www.instagram.com/oguzhanihlamur" 
+          href="https://instagram.com/oguzhanihlamur" 
           target="_blank" 
           rel="noopener noreferrer"
           className={styles.link}

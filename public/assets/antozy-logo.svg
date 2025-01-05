@@ -1,0 +1,21 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .letter { font-family: 'Arial Black', sans-serif; font-size: 20px; font-weight: bold; }
+    .a { fill: #FF6B6B; }
+    .n { fill: #4ECDC4; }
+    .t { fill: #45B7D1; }
+    .o { fill: #96CEB4; }
+    .z { fill: #FFEEAD; }
+    .y { fill: #FF9F1C; }
+  </style>
+  
+  <circle cx="50" cy="50" r="45" fill="#2C3E50" />
+  
+  <!-- Harfleri daire üzerinde konumlandırma -->
+  <text x="50" y="20" text-anchor="middle" class="letter a">A</text>
+  <text x="80" y="35" text-anchor="middle" class="letter n">N</text>
+  <text x="80" y="70" text-anchor="middle" class="letter t">T</text>
+  <text x="50" y="85" text-anchor="middle" class="letter o">O</text>
+  <text x="20" y="70" text-anchor="middle" class="letter z">Z</text>
+  <text x="20" y="35" text-anchor="middle" class="letter y">Y</text>
+</svg> 

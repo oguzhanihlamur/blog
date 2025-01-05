@@ -57,6 +57,6 @@
 
 .location {
   font-weight: 500;
-  color: #2D3748;
+  color: var(--text-muted);
   font-family: 'Inter', sans-serif;
 } 

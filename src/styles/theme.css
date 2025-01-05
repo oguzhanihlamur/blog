@@ -15,4 +15,29 @@
   --font-family: 'Inter', sans-serif;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
+  
+  --global-bg-opacity: rgba(243, 244, 246, 0.25);
+  --coderain-text-color: rgba(246, 131, 65, 0.99);
+  --square-bg:rgba(243, 244, 246, 0.25);
+  
+  --text-primary: #2D3748;
+  --text-secondary: #4a5568;
+  --text-muted: #718096;
+  --text-heading: #718096;
+  --button-bg: #f3f4f6;
+  --button-text: #4a5568;
+}
+
+/* Dark mode değişkenleri */
+:root[data-theme="dark"] {
+  --square-bg: rgba(0, 0, 0, 0.105);
+  --global-bg-opacity: rgba(0, 0, 0, 0.25);
+  --coderain-text-color: rgba(246, 131, 65, 0.99);
+  
+  --text-primary: #ffffff;
+  --text-secondary: #e2e8f0;
+  --text-muted: #a0aec0;
+  --text-heading: #e2e8f0;
+  --button-bg: #2d3748;
+  --button-text: #e2e8f0;
 }
